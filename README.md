@@ -21,3 +21,15 @@ BOOKING_DAYS_FROM_NOW=2
 TIME="11:00 AM"
 FIT4LESS_LOGIN_URL="https://myfit4less.gymmanager.com/portal/login.asp"
 ```
+
+### Cron Job
+
+Run `crontab -e`
+
+Add to the bottom of the file
+
+```
+1 0 * * * env -i DISPLAY=:0.0 XAUTHORITY="$XAUTHORITY" /home/YOURUSERNAME/Documents/fit4less-bot/venv/bin/python3 /home/YOURUSERNAME/Documents/fit4less-bot/bot.py >> /home/YOURUSERNAME/Documents/fit4less-bot/cron.log 2>&1
+```
+
+You will likely have to change the python file
