@@ -10,6 +10,7 @@ load_dotenv()
 EMAIL = os.getenv("EMAIL")
 PASSWORD = os.getenv("PASSWORD")
 LOGIN_URL = os.getenv("FIT4LESS_LOGIN_URL")
+CHROME_DRIVER_PATH = os.getenv("CHROME_DRIVER_PATH")
 TIME = os.getenv("TIME")
 BOOKING_DATE = str(datetime.now().date() +
                    timedelta(days=int(os.getenv("BOOKING_DAYS_FROM_NOW"))))
@@ -35,7 +36,7 @@ if not (TIME):
 chrome_options = Options()
 # Add "headless" to hide actual screen
 # chrome_options.add_argument("--headless")
-driver = webdriver.Chrome("./chromedriver", options=chrome_options)
+driver = webdriver.Chrome(CHROME_DRIVER_PATH, options=chrome_options)
 driver.get(LOGIN_URL)
 
 try:
